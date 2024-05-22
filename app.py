@@ -1,4 +1,4 @@
-from dotenv import load_dotenv # type: ignore
+from dotenv import load_dotenv 
 
 load_dotenv() ## load all the environment variables
 
