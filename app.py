@@ -1,7 +1,5 @@
-from dotenv import load_dotenv 
-
-load_dotenv() ## load all the environment variables
-
+from distutils.command import upload
+from dotenv import load_dotenv
 import streamlit as st
 import os
 import google.generativeai as genai
