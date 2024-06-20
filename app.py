@@ -34,7 +34,7 @@ def input_image_setup(uploaded_file):
 
 st.set_page_config(page_title="Diagnosis App")
 st.header("Diagnosis App")
-input=st.text_input("Input Prompt: ",key="input")
+
 uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
 image=""
 if uploaded_file is not None:
