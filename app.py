@@ -88,7 +88,7 @@ Your insights are invaluable in guiding clinical decisions. Please proceed with 
 if submit:
     image_data = input_image_setup(uploaded_file)
     if input_prompt or image_data:
-        response = get_gemini_response(input_prompt, image_data, analysis_prompt)
+        response = get_gemini_response(input_prompt, image_data, input_prompt)
         st.subheader("The Response is")
         st.write(response)
     else:
