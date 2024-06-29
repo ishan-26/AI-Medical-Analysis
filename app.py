@@ -18,8 +18,11 @@ generation_config = {
 
 def get_gemini_repsonse(input,image,prompt):
  model = genai.GenerativeModel(model_name="gemini-1.5-pro",generation_config=generation_config,)     
- response=model.generate_content([input,image[0],prompt])
- return response.text
+if image:
+        response = model.generate_content([input, image[0], prompt])
+else:
+    response = model.generate_content([input, prompt])
+    return response.text
 
 
 def input_image_setup(uploaded_file):
