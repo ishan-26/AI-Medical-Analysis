@@ -16,12 +16,12 @@ generation_config = {
 }
 ## Function to load Google Gemini Pro Vision API And get response
 
-def get_gemini_response(input,image,prompt):
+def get_gemini_response(input_text,image,prompt):
   model = genai.GenerativeModel(model_name="gemini-1.5-pro",generation_config=generation_config,)     
   if image:
-      response = model.generate_content([input, image[0], prompt])
+      response = model.generate_content([input_text, image[0], prompt])
   else:
-      response = model.generate_content([input, prompt])
+      response = model.generate_content([input_text, prompt])
   return response.text
 
 
@@ -44,7 +44,7 @@ def input_image_setup(uploaded_file):
 
 st.set_page_config(page_title="Diagnosis App")
 st.header("Diagnosis App")
-input=st.text_input("Input Prompt: ",key="input")
+user_input=st.text_input("Input Prompt: ",key="input")
 
 uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
 image=""
@@ -110,17 +110,16 @@ Disclaimer: Accompany your analysis with the disclaimer: "Consult with a Doctor 
 Your insights are invaluable in guiding clinical decisions. Please proceed with the analysis, adhering to the structured approach outlined above.
 """
 
-## If submit button is clicked
-
+# If submit button is clicked
 if submit:
     image_data = input_image_setup(uploaded_file)
-    if input_prompt or image_data:
-        if input_prompt:
-            text_analysis_prompt = text_analysis_prompt_template.format(input_text=input_prompt)
+    if user_input or image_data:
+        if user_input:
+            text_analysis_prompt = text_analysis_prompt_template.format(input_text=user_input)
         else:
             text_analysis_prompt = None
         
-        response = get_gemini_response(input_prompt, image_data, text_analysis_prompt if text_analysis_prompt else image_analysis_prompt)
+        response = get_gemini_response(user_input, image_data, text_analysis_prompt if text_analysis_prompt else image_analysis_prompt)
         st.subheader("The Response is")
         st.write(response)
     else:
