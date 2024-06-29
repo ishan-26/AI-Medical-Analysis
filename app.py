@@ -86,10 +86,10 @@ Your insights are invaluable in guiding clinical decisions. Please proceed with 
 ## If submit button is clicked
 
 if submit:
-    image_data=input_image_setup(uploaded_file)
-  if input_prompt or image_data:
-    response=get_gemini_repsonse(input_prompt,image_data,input)
-    st.subheader("The Response is")
-    st.write(response)
-  else:
-      st.error("Please enter a prompt or upload an image.")
+    image_data = input_image_setup(uploaded_file)
+    if input_prompt or image_data:
+        response = get_gemini_response(input_prompt, image_data, analysis_prompt)
+        st.subheader("The Response is")
+        st.write(response)
+    else:
+        st.error("Please enter a prompt or upload an image."))
