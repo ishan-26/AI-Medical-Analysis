@@ -39,7 +39,7 @@ def input_image_setup(uploaded_file):
         ]
         return image_parts
     else:
-        raise FileNotFoundError("No file uploaded")
+        return None
 
 
 st.set_page_config(page_title="Diagnosis App")
