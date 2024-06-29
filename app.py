@@ -92,4 +92,4 @@ if submit:
         st.subheader("The Response is")
         st.write(response)
     else:
-        st.error("Please enter a prompt or upload an image."))
+        st.error("Please enter a prompt or upload an image.")
