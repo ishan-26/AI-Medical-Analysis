@@ -82,7 +82,7 @@ Your insights are invaluable in guiding clinical decisions. Please proceed with 
 """
 
 # Prompt for text analysis
-t# Prompt for text analysis
+# Prompt for text analysis
 text_analysis_prompt_template = """
 As a highly skilled medical practitioner, you are tasked with evaluating the following medical problem described by a patient. Your expertise is crucial in identifying any potential health issues that may be present based on the text description.
 
