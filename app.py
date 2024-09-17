@@ -82,6 +82,7 @@ Your insights are invaluable in guiding clinical decisions. Please proceed with 
 """
 
 # Prompt for text analysis
+t# Prompt for text analysis
 text_analysis_prompt_template = """
 As a highly skilled medical practitioner, you are tasked with evaluating the following medical problem described by a patient. Your expertise is crucial in identifying any potential health issues that may be present based on the text description.
 
@@ -90,4 +91,21 @@ Patient Description:
 
 Analysis:
 
-    Evaluation: Describe any potential health issues or concerns based
+    Evaluation: Describe any potential health issues or concerns based on the description provided.
+    Pathological Evaluation: Based on the findings, is there evidence of any specific disease processes or abnormalities?
+    If possible, narrow down the possibilities to a differential diagnosis (list of potential conditions).
+    Urgency: Does the described issue require immediate medical attention?
+    Confidence Level: Express your confidence level in the analysis (high, medium, low).
+
+Recommendations:
+
+    Based on the analysis, recommend any additional tests or consultations that might be necessary for further evaluation.
+    If a specific diagnosis is suspected, outline potential treatment options in general terms in a markdown manner.
+    Here, avoid mentioning specific medications as they depend heavily on individual factors.
+    Add disclaimer in bold letters.
+
+Important Notes:
+Disclaimer: Accompany your analysis with the disclaimer: "Consult with a Doctor before making any decisions."
+Your insights are invaluable in guiding clinical decisions. Please proceed with the analysis, adhering to the structured approach outlined above.
+"""
+
