@@ -18,9 +18,9 @@ generation_config = {
 def get_gemini_response(input_text, image, prompt):
   model = genai.GenerativeModel(model_name="gemini-1.5-pro", generation_config=generation_config)     
   if image:
-      response = model.generate_content([input_text, image[0], prompt])
+      response = model.generate_content([input_text, image[0], image_analysis_prompt])
   else:
-      response = model.generate_content([input_text, prompt])
+      response = model.generate_content([input_text, text_analysis_prompt_template])
   return response.text
 
 
