@@ -50,6 +50,9 @@ if uploaded_file is not None:
     image = Image.open(uploaded_file)
     st.image(image, caption="Uploaded Image.", use_column_width=True)
 
+else:
+    st.warning("Please upload the image")
+
 submit = st.button("Tell me the diagnosis")
 
 input_prompt = """
@@ -86,4 +89,4 @@ if submit:
         st.subheader("The Response is")
         st.write(response)
     else:
-        st.error("Please enter a prompt or upload an image.")
+        st.error("Please upload an image.")
