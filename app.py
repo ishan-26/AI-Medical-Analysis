@@ -16,12 +16,12 @@ generation_config = {
 }
 
 # Function to load Google Gemini Pro Vision API And get response
-def get_gemini_response(input, image, prompt):
+def get_gemini_response(image, prompt):
     model = genai.GenerativeModel(model_name="gemini-1.5-pro", generation_config=generation_config)
     if image:
-        response = model.generate_content([input, image[0], prompt])
+        response = model.generate_content([image[0], prompt])
     else:
-        response = model.generate_content([input, prompt])
+       st.warning("Please upload the image")
     return response.text
 
 def input_image_setup(uploaded_file):
@@ -83,8 +83,8 @@ Your insights are invaluable in guiding clinical decisions. Please proceed with 
 # If submit button is clicked
 if submit:
     image_data = input_image_setup(uploaded_file)
-    if input_prompt or image_data:
-        response = get_gemini_response(input_prompt, image_data, input_prompt)
+    if image_data:
+        response = get_gemini_response(image_data, input_prompt)
         st.subheader("The Response is")
         st.write(response)
     else:
