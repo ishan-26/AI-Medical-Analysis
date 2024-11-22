@@ -4,7 +4,7 @@ import os
 import google.generativeai as genai
 from PIL import Image
 
-genai.configure(api_key=os.environ("GOOGLE_API_KEY"))
+genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 
 generation_config = {
     "temperature": 1,
